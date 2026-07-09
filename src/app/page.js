@@ -1,65 +1,109 @@
-import Image from "next/image";
+import AboutSection from "@/sections/Aboutsection";
+import BrandCarousel from "@/sections/Brandcarousel";
+import DirectorMessage from "@/sections/DirectorMessage";
+import FAQSection from "@/sections/Faq";
+import Hero from "@/sections/Hero";
+import ProductionLine from "@/sections/ProductionLine";
+import Services from "@/sections/Services";
+import Testimonial from "@/sections/Testimonal";
+import VideoGallery from "@/sections/VideoGallery";
+import WhyChooseUs from "@/sections/Whychooseus";
+
+export const metadata = {
+  title: "Apex Technology | Laser Cutting Machines Manufacturer in India",
+  description:
+    "Apex Technology is a trusted laser cutting machines manufacturer in India, offering high-precision fiber, CO2 and CNC laser cutting machines for industrial applications.",
+  keywords: [
+    "Apex Technology",
+    "Laser Cutting Machines",
+    "Laser Cutting Machines Manufacturer in India",
+  ],
+  alternates: {
+    canonical: "https://www.apexmachinerytechnology.in/",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a laser cutting machine used for?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A laser cutting machine uses a focused laser beam to cut, engrave, or shape materials like metal, acrylic, and wood with high precision. It's widely used in metal fabrication, signage, automotive, and electronics industries.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What types of laser cutting machines does Apex Technology offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Apex Technology offers fiber laser cutting machines, CO2 laser cutting machines, and CNC laser systems, designed for various industrial and commercial cutting needs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which laser cutting machine is best for metal cutting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Fiber laser cutting machines are best suited for cutting metals like stainless steel, mild steel, and aluminum due to their high speed and energy efficiency.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Apex Technology provide installation and after-sales support?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Apex Technology provides complete solutions including expert guidance, on-site installation support, and dedicated after-sales service.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who can use Apex Technology's laser cutting machines?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our machines are designed for industries such as metal fabrication, signage, automotive, electronics, and general manufacturing, suitable for both small businesses and large-scale production units.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I get a quote for a laser cutting machine?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can contact Apex Technology directly through our website's contact form or call our team for a customized quote based on your production requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who is the best laser cutting machine manufacturer in Delhi NCR?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Apex Technology is a trusted laser cutting machine manufacturer serving Delhi NCR, known for high-precision fiber, CO2, and CNC laser cutting solutions. We offer reliable machines backed by expert installation support and dedicated after-sales service, making us a preferred choice for businesses across the region.",
+      },
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+    <Hero/>
+    <Services/>
+    <DirectorMessage/>
+    <ProductionLine/>
+    <AboutSection/>
+    <WhyChooseUs/>
+    <VideoGallery/>
+    
+    <Testimonial/>
+    <FAQSection/>
+    <BrandCarousel/>
+    </>
   );
 }
