@@ -6,7 +6,7 @@ const page = productPages.sheetMetal;
 export const metadata = {
   ...page.metadata,
   alternates: {
-    canonical: "https://www.apexmachinerytechnology.in/sheet-metal-cutting-machine",
+    canonical: "https://www.apexmachinerytechnology.in/sheet-metal-cutting-machine-manufacturer",
   },
 };
 

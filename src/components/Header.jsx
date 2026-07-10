@@ -18,7 +18,7 @@ export default function Header() {
     },
     {
       name: "Sheet Metal Cutting Machine",
-      href: "/sheet-metal-cutting-machine",
+      href: "/sheet-metal-cutting-machine-manufacturer",
     },
     {
       name: "Tube Laser Cutting Machine",

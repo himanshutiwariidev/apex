@@ -33,7 +33,7 @@ const products = [
   },
   {
     label: "Sheet Metal Cutting Machine",
-    href: "/sheet-metal-cutting-machine",
+    href: "/sheet-metal-cutting-machine-manufacturer",
   },
   {
     label: "Tube Laser Cutting Machine",

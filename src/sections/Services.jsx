@@ -22,7 +22,7 @@ const services = [
     title: "Sheet & Pipe Laser Machine",
     description:
       "Advanced Sheet & Pipe Fiber Laser Cutting Machines designed for speed, precision and industrial performance.",
-    link: "/sheet-metal-cutting-machine",
+    link: "/sheet-metal-cutting-machine-manufacturer",
   },
   {
     icon: GiMechanicalArm,
