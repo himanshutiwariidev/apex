@@ -14,7 +14,7 @@ const products = [
     title: productPages.sheetMetal.h1,
     description: productPages.sheetMetal.metadata.description,
     image: productPages.sheetMetal.image,
-    href: "/sheet-metal-cutting-machine",
+    href: "/sheet-metal-cutting-machine-manufacturer",
   },
   {
     title: productPages.tubeLaser.h1,

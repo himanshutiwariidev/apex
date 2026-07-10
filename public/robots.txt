@@ -1,0 +1,71 @@
+User-agent: *
+Allow: /
+
+# ============================
+# Search Engine Crawlers
+# ============================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI / LLM Crawlers (GEO) — Allowed
+# ============================
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini / AI Overviews / Bard)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Apple (Siri/Applebot AI)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (used to train many LLMs)
+User-agent: CCBot
+Allow: /
+
+# ============================
+# Disallow admin / private paths
+# ============================
+User-agent: *
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /*?*utm_
+
+# ============================
+# Sitemap
+# ============================
+Sitemap: https://www.apexmachinerytechnology.in/sitemap.xml
