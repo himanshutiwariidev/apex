@@ -22,6 +22,9 @@ export const metadata = {
     icon: "/icon.png",
     apple: "/icon.png",
   },
+  verification: {
+    google: "k7laq5Aa3TxNasWZj7HIpV8HXY7YJleOw2BEnKGG2i8",
+  },
 };
 
 export default function RootLayout({ children }) {
