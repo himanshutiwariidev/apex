@@ -55,7 +55,7 @@ export default function AboutSection() {
 
           <div className="mt-5">
             <a
-              href="/about"
+              href="/about-us"
               className="inline-flex items-center rounded-full bg-red-600 px-8 py-4 text-white font-semibold transition hover:bg-red-700"
             >
               Learn More

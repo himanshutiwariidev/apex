@@ -59,7 +59,7 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="hidden md:block rounded-lg border border-white px-8 py-4 text-lg font-semibold text-white transition hover:bg-white hover:text-black"
               >
                 Contact Us
