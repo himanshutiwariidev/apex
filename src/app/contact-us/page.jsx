@@ -1,9 +1,84 @@
+
 "use client";
 
+import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaFacebookF, FaYoutube } from "react-icons/fa";
 
 export default function ContactSection() {
+  const [status, setStatus] = useState({
+    type: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setStatus({
+      type: "",
+      message: "",
+    });
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    formData.append(
+      "access_key",
+      "976a7a78-137f-4943-b629-612dc4da5830"
+    );
+
+    formData.append(
+      "subject",
+      "New Contact Form Submission - Apex Machinery Technology"
+    );
+
+    formData.append(
+      "from_name",
+      "Apex Machinery Technology Website"
+    );
+
+    try {
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({
+          type: "success",
+          message:
+            "Thank you! Your message has been submitted successfully. Our team will contact you shortly.",
+        });
+
+        form.reset();
+      } else {
+        setStatus({
+          type: "error",
+          message:
+            "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Web3Forms Error:", error);
+
+      setStatus({
+        type: "error",
+        message:
+          "Unable to send your message. Please try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-5">
@@ -103,6 +178,7 @@ export default function ContactSection() {
                 <a
                   href="https://www.facebook.com/p/Apex-machinery-technology-100068976048876/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="h-14 w-14 rounded-full bg-[#3b5998] flex items-center justify-center text-white text-xl hover:scale-110 transition"
                 >
                   <FaFacebookF />
@@ -111,6 +187,7 @@ export default function ContactSection() {
                 <a
                   href="https://www.youtube.com/@APEXTECHNOLOGYINDIA-wj5xk"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="h-14 w-14 rounded-full bg-red-600 flex items-center justify-center text-white text-xl hover:scale-110 transition"
                 >
                   <FaYoutube />
@@ -126,19 +203,26 @@ export default function ContactSection() {
 
           <div className="bg-white p-8 md:p-10">
 
-            <form className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
 
               <div className="grid md:grid-cols-2 gap-5">
 
                 <input
                   type="text"
+                  name="first_name"
                   placeholder="First Name"
+                  required
                   className="border border-gray-300 p-4 outline-none focus:border-red-600"
                 />
 
                 <input
                   type="text"
+                  name="last_name"
                   placeholder="Last Name"
+                  required
                   className="border border-gray-300 p-4 outline-none focus:border-red-600"
                 />
 
@@ -146,52 +230,73 @@ export default function ContactSection() {
 
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                required
                 className="w-full border border-gray-300 p-4 outline-none focus:border-red-600"
               />
 
               <input
                 type="tel"
+                name="phone"
                 placeholder="Mobile"
+                required
                 className="w-full border border-gray-300 p-4 outline-none focus:border-red-600"
               />
 
               <textarea
+                name="message"
                 rows={6}
                 placeholder="Message"
+                required
                 className="w-full border border-gray-300 p-4 outline-none resize-none focus:border-red-600"
               ></textarea>
 
-        
-
               <button
                 type="submit"
-                className="bg-red-600 text-white px-10 py-4 text-lg font-semibold hover:bg-red-700 transition"
+                disabled={loading}
+                className="bg-red-600 text-white px-10 py-4 text-lg font-semibold hover:bg-red-700 transition disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </button>
+
+              {/* Success / Error Message */}
+
+              {status.message && (
+                <div
+                  className={`mt-4 p-4 border text-sm font-medium ${
+                    status.type === "success"
+                      ? "bg-green-50 border-green-200 text-green-700"
+                      : "bg-red-50 border-red-200 text-red-700"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
 
             </form>
 
           </div>
 
         </div>
-
       </div>
+
       {/* Google Map */}
 
-<div className=" rounded-xl overflow-hidden shadow-lg border border-gray-300">
-  <iframe
-    title="Apex Technology Location"
-    src="https://www.google.com/maps?q=GROUND+FLOOR,+khasra+no.+63/25,64/21,+Road+No+6+Gali+No.2,+Vrinda+Associates,+Udyognagar+Mundka,+New+Delhi,+Delhi+110041&output=embed"
-    width="100%"
-    height="500"
-    loading="lazy"
-    allowFullScreen
-    referrerPolicy="no-referrer-when-downgrade"
-    className="w-full"
-  />
-</div>
+      <div className="rounded-xl overflow-hidden shadow-lg border border-gray-300">
+        <iframe
+          title="Apex Technology Location"
+          src="https://www.google.com/maps?q=GROUND+FLOOR,+khasra+no.+63/25,64/21,+Road+No+6+Gali+No.2,+Vrinda+Associates,+Udyognagar+Mundka,+New+Delhi,+Delhi+110041&output=embed"
+          width="100%"
+          height="500"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+          className="w-full"
+        />
+      </div>
+
     </section>
   );
 }
+

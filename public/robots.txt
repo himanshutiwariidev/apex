@@ -55,15 +55,7 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# ============================
-# Disallow admin / private paths
-# ============================
-User-agent: *
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /cart/
-Disallow: /checkout/
-Disallow: /*?*utm_
+
 
 # ============================
 # Sitemap
